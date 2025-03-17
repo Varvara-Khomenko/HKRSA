@@ -53,11 +53,16 @@
             <div class="Toastify"></div>
             <div class="flex-1 mt-[70px]">
                <div class="flex justify-center my-20">
-                  <form class="flex flex-col items-center">
+                  <form class="flex flex-col items-center" method="POST">
+                     {% csrf_token %}
                      <span class="font-bold text-3xl text-black text-center">Login</span>
                      <div class="mt-12 flex flex-col space-y-4">
-                        <input class="appearance-none sm:w-[32ch] w-[24ch] px-3 py-2 text-center border-2 border-gray-200 rounded text-xl focus:outline-primary" placeholder="Username or Email" name="identifier">
-                        <input class="appearance-none sm:w-[32ch] w-[24ch] px-3 py-2 text-center border-2 border-gray-200 rounded text-xl focus:outline-primary" placeholder="Password" type="password" name="password"></div>
+                        <input class="appearance-none sm:w-[32ch] w-[24ch] px-3 py-2 text-center border-2 border-gray-200 rounded text-xl focus:outline-primary" placeholder="Username or Email" name="username" id="id_username">
+                        <input class="appearance-none sm:w-[32ch] w-[24ch] px-3 py-2 text-center border-2 border-gray-200 rounded text-xl focus:outline-primary" placeholder="Password" type="password" name="password" id="id_password">
+                     </div>
+                     {% if message is not None %}
+                     <span class="text-red-500 mt-5">{{message}}</span>
+                     {% endif %}
                      <button class="mt-8 bg-primary text-white w-full py-2 text-lg text-center rounded font-bold uppercase flex justify-center" type="submit">Login</button>
                      <span class="mt-5 text-gray-500">Not a member? Register <a class="text-primary underline" href="https://thehkmsa.com/register/">here</a></span>
                      <span class="mt-2 text-gray-500">Forgot Password? Reset <a class="text-primary underline" href="https://thehkmsa.com/forgot-password/">here</a></span>

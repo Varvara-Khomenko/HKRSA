@@ -107,7 +107,7 @@ LOGIN_REDIRECT_URL = 'home'
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'ASIA/Hong_Kong'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
