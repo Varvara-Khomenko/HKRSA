@@ -27,19 +27,12 @@ def login_view(request):
 
         try:
             user = authenticate(request, username=username, password=password)
-            print(user)
-            print(user.username)
-            print(user.password)
         except:
-            messages.error(request, "User Not Found....")
-            print("NOT FOUND")
             return render(request, "main/HKMSA _ Login.html", {"message": "Invalid Credentials"})
 
         if user is not None:
             login(request, user)
             return redirect("/")
         else:
-            print("INVALID CREDS")
-            messages.error(request, "Username or Password does not match...")
             return render(request, "main/HKMSA _ Login.html", {"message": "Invalid Credentials"})
     return render(request, "main/HKMSA _ Login.html")
